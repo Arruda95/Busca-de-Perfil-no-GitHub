@@ -100,3 +100,65 @@ body {
 .text-dark { color: #333; }
 .text-gray { color: #777; }
 .text-light { color: #999; }
+
+
+
+
+.search-history {
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.history-title {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  background-color: #f5f8ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.history-item:hover {
+  background-color: #e9efff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.history-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.history-username {
+  font-size: 0.9rem;
+  color: #0066FF;
+}
+
+@media (max-width: 500px) {
+  .history-list {
+    flex-direction: column;
+  }
+  
+  .history-item {
+    width: 100%;
+  }
+}

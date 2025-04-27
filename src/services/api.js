@@ -16,4 +16,27 @@ export const fetchUserProfile = async (username) => {
   }
 };
 
+export const searchUsers = async (query) => {
+  try {
+    if (!query || query.trim() === '') return [];
+    
+    const response = await api.get('/search/users', {
+      params: {
+        q: query,
+        per_page: 5  // Limita o número de resultados para 5
+      }
+    });
+    
+    return response.data.items.map(user => ({
+      id: user.id,
+      login: user.login,
+      avatar_url: user.avatar_url,
+      html_url: user.html_url
+    }));
+  } catch (error) {
+    console.error('Erro ao buscar usuários:', error);
+    return [];
+  }
+};
+
 export default api;

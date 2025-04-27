@@ -5,7 +5,7 @@ const LoadingSpinner = () => {
   return (
     <div className="spinner-container">
       <div className="spinner"></div>
-      <p className="spinner-text">Buscando perfil...</p>
+      <p className="spinner-text">Buscando perfis...</p>
     </div>
   );
 };

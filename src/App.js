@@ -64,7 +64,7 @@ function App() {
       </main>
       
       <footer className="app-footer">
-        <p>° 2025</p>
+        <p>2025</p>
       </footer>
     </div>
   );
