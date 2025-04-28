@@ -1,64 +1,92 @@
+/* Container principal das sugestões */
 .suggestions-container {
-  position: absolute;
-  top: 100%;
+  position: absolute; /* Posiciona abaixo do input */
+  top: 100%; /* Começa exatamente abaixo do elemento pai */
   left: 0;
   right: 0;
-  background-color: white;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  margin-top: 4px;
-  max-height: 320px;
-  overflow-y: auto;
-  animation: fadeIn 0.2s ease;
+  background-color: white; /* Fundo branco */
+  border-radius: 0 0 8px 8px; /* Bordas arredondadas na parte inferior */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  z-index: 10; /* Garante que fique acima de outros elementos */
+  margin-top: 4px; /* Pequeno espaçamento do input */
+  max-height: 320px; /* Altura máxima padrão */
+  overflow-y: auto; /* Permite rolagem se ultrapassar a altura */
+  animation: fadeIn 0.2s ease; /* Animação de entrada */
 }
 
+/* Estiliza a lista de sugestões */
 .suggestions-list {
-  list-style: none;
+  list-style: none; /* Remove marcadores da lista */
   padding: 0;
   margin: 0;
 }
 
+/* Estiliza cada item de sugestão */
 .suggestion-item {
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  display: flex; /* Alinha o avatar e o nome lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 12px 16px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor de mãozinha ao passar por cima */
+  transition: background-color 0.2s; /* Animação de hover */
 }
 
+/* Cor de fundo ao passar o mouse sobre uma sugestão */
 .suggestion-item:hover {
   background-color: #f5f8ff;
 }
 
+/* Linha divisória entre os itens, exceto o último */
 .suggestion-item:not(:last-child) {
   border-bottom: 1px solid #eaeef8;
 }
 
+/* Estiliza o avatar do usuário */
 .suggestion-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  margin-right: 12px;
-  object-fit: cover;
+  border-radius: 50%; /* Deixa o avatar redondo */
+  margin-right: 12px; /* Espaço entre avatar e nome */
+  object-fit: cover; /* Mantém a imagem proporcional sem distorcer */
 }
 
+/* Estiliza o nome de usuário */
 .suggestion-username {
-  font-size: 0.9rem;
-  color: #333;
+  font-size: 0.9rem; /* Tamanho de fonte ajustado */
+  color: #333; /* Cor escura para o texto */
 }
 
+/* Animação de fadeIn (suaviza a entrada do container) */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Estilos para telas menores que 768px (dispositivos móveis) */
+@media (max-width: 768px) {
+  .suggestions-container {
+    max-height: 150px; /* Reduz altura para caber melhor na tela */
+    position: fixed; /* Fixado na tela, não mais relativo ao input */
+    width: calc(100% - 40px); /* Ajusta largura com margens */
+    margin-top: 0; /* Remove o espaço superior */
+  }
+
+  .suggestion-item {
+    padding: 8px 12px; /* Reduz o espaçamento interno */
+  }
+
+  .suggestion-avatar {
+    width: 24px; /* Diminui o tamanho do avatar */
+    height: 24px;
+  }
+}
+
+/* Estilos específicos para telas muito pequenas (máx 500px) */
 @media (max-width: 500px) {
   .suggestions-container {
-    position: fixed;
-    top: auto;
-    left: 20px;
+    position: fixed; /* Mantém fixo */
+    top: auto; /* Não fixa o topo */
+    left: 20px; /* Deixa margens laterais */
     right: 20px;
-    max-height: 250px;
+    max-height: 250px; /* Um pouco mais de altura que no breakpoint anterior */
   }
 }

@@ -1,0 +1,193 @@
+:root {
+  --mario-red: #e52521;
+  --mario-blue: #0066FF;
+  --mario-yellow: #fbd000;
+  --mario-green: #43b047;
+}
+
+body {
+  background-color: #5c94fc; /* Mario sky blue */
+  position: relative;
+  font-family: 'Press Start 2P', 'Inter', -apple-system, sans-serif;
+}
+
+/* Mario title styling */
+.mario-title {
+  color: var(--mario-red);
+  text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 1px;
+}
+
+.mario-subtitle {
+  color: var(--mario-yellow);
+  text-shadow: 1px 1px 0 #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+}
+
+/* Mario themed buttons */
+.mario-button {
+  background-color: var(--mario-red);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  transition: all 0.2s;
+}
+
+.mario-button:hover:not(:disabled) {
+  background-color: var(--mario-yellow);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.mario-button:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.mario-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Mario themed input */
+.mario-input-wrapper {
+  background-color: #fff;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.2s;
+}
+
+.mario-input-wrapper.focused {
+  box-shadow: 4px 4px 0 #000;
+}
+
+.mario-input {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+}
+
+/* Profile card with Mario theme */
+.mario-card {
+  background-color: #fff;
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0 #000;
+  border-radius: 8px;
+}
+
+/* Ground styling */
+.mario-ground {
+  height: 40px;
+  background-color: #6b4c00;
+  position: relative;
+  margin-top: 20px;
+}
+
+.mario-ground::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: var(--mario-green);
+}
+
+/* Footer styling */
+.mario-footer {
+  background-color: var(--mario-red);
+  color: white;
+  border-top: 4px solid #000;
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+}
+
+.mario-footer a {
+  color: var(--mario-yellow);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.mario-footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Stats with Mario style */
+.mario-stats {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e9efff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.mario-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.mario-stat-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--mario-red);
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Mario Coin animation */
+@keyframes coinSpin {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1) translateY(-5px); }
+  100% { transform: scale(1); }
+}
+
+.mario-coin {
+  background-color: var(--mario-yellow);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  animation: coinSpin 1s infinite;
+  border: 1px solid #000;
+}
+
+/* Mario Cloud Animation */
+@keyframes floatCloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+.mario-cloud {
+  position: absolute;
+  animation: floatCloud linear infinite;
+}
+
+.mario-cloud:nth-child(1) {
+  top: 50px;
+  animation-duration: 60s;
+  animation-delay: 0s;
+}
+
+.mario-cloud:nth-child(2) {
+  top: 120px;
+  animation-duration: 75s;
+  animation-delay: 15s;
+}
+
+.mario-cloud:nth-child(3) {
+  top: 200px;
+  animation-duration: 90s;
+  animation-delay: 30s;
+}

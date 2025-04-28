@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { FaMapMarkerAlt, FaLink, FaTwitter, FaBuilding, FaUserFriends } from 'react-icons/fa';
 import '../styles/profile.css';
+// No need to import mario-theme.css as it's already imported in App.js
 
-const Profile = ({ user }) => {
+const Profile = ({ user, useMarioTheme = false }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (user) {
-      // Pequeno atraso para garantir que a animação seja executada após a renderização
+      // Small delay to ensure animation runs after rendering
       setTimeout(() => setIsVisible(true), 100);
     }
   }, [user]);
 
   if (!user) return null;
 
+  // Apply Mario theme classes if enabled
+  const profileCardClasses = `profile-card ${isVisible ? 'visible' : ''} ${useMarioTheme ? 'mario-card' : ''}`;
+  const statsClasses = `profile-stats ${useMarioTheme ? 'mario-stats' : ''}`;
+  const statItemClasses = useMarioTheme ? 'stat-item mario-stat-item' : 'stat-item';
+  const statNumberClasses = useMarioTheme ? 'stat-number mario-stat-number' : 'stat-number';
+
   return (
-    <div className={`profile-card ${isVisible ? 'visible' : ''}`}>
+    <div className={profileCardClasses}>
       <div className="profile-header">
         <img 
           src={user.avatar_url} 
@@ -79,17 +86,17 @@ const Profile = ({ user }) => {
         )}
       </div>
       
-      <div className="profile-stats">
-        <div className="stat-item">
-          <span className="stat-number">{user.followers}</span>
+      <div className={statsClasses}>
+        <div className={statItemClasses}>
+          <span className={statNumberClasses}>{user.followers}</span>
           <span className="stat-label">Seguidores</span>
         </div>
-        <div className="stat-item">
-          <span className="stat-number">{user.following}</span>
+        <div className={statItemClasses}>
+          <span className={statNumberClasses}>{user.following}</span>
           <span className="stat-label">Seguindo</span>
         </div>
-        <div className="stat-item">
-          <span className="stat-number">{user.public_repos}</span>
+        <div className={statItemClasses}>
+          <span className={statNumberClasses}>{user.public_repos}</span>
           <span className="stat-label">Repositórios</span>
         </div>
       </div>

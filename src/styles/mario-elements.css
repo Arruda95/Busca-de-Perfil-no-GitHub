@@ -1,0 +1,198 @@
+.mario-elements {
+  position: relative;
+  width: 100%;
+  height: 0;
+  z-index: 5;
+}
+
+/* Caixas */
+.mario-box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: float 3s ease-in-out infinite;
+  z-index: 6;
+}
+
+.question-box {
+  top: 100px;
+  left: 10%;
+  background-image: url('https://mario.wiki.gallery/images/9/95/NSMBU_Question_Block_Artwork.png');
+  animation-delay: 0.5s;
+}
+
+.brick-box {
+  top: 80px;
+  right: 15%;
+  background-image: url('https://mario.wiki.gallery/images/thumb/3/35/BrickBlockNSMBU.png/1200px-BrickBlockNSMBU.png');
+  animation-delay: 1s;
+}
+
+.item-box {
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url('https://mario.wiki.gallery/images/thumb/c/c7/NSMBU_Toad_House_Block.png/250px-NSMBU_Toad_House_Block.png');
+  animation-delay: 1.5s;
+}
+
+/* Personagens */
+.character, .enemy {
+  position: absolute;
+  width: 60px;
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 7;
+}
+
+.mario {
+  bottom: 20px;
+  left: 15%;
+  background-image: url('https://www.giantbomb.com/a/uploads/square_small/46/462814/3252659-mario.gif');
+  animation: hop 2s ease-in-out infinite;
+}
+
+.luigi {
+  bottom: 20px;
+  left: 30%;
+  background-image: url('https://media2.giphy.com/media/l1KtXmfi3EnjM5zpK/giphy.gif');
+  animation: hop 2.5s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+.yoshi {
+  bottom: 20px;
+  right: 25%;
+  background-image: url('https://i.gifer.com/origin/59/59eba4973baadb46af16a68d4daf1f56_w200.gif');
+  animation: hop 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.toad {
+  bottom: 20px;
+  right: 10%;
+  background-image: url('https://64.media.tumblr.com/3f3a819645051c1a3fcbe7bf4d13d635/tumblr_nz1pt4QmjQ1tgzy56o1_250.gifv');
+  animation: hop 2.7s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.goomba {
+  bottom: 20px;
+  left: 45%;
+  background-image: url('https://64.media.tumblr.com/d3d02c0e9e26cad39e4a2d77a34cea7a/tumblr_n34rszhk8Y1sol4pdo1_250.gifv');
+  animation: waddle 5s linear infinite;
+}
+
+.koopa {
+  bottom: 20px;
+  right: 45%;
+  background-image: url('https://i.gifer.com/origin/36/36f6731a3d6b563c3b655e7407a44c6b_w200.gif');
+  animation: waddle 7s linear infinite reverse;
+  animation-delay: 2s;
+}
+
+/* Moedas */
+.coin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://64.media.tumblr.com/9a45a39d865ff362e89e7ca1e18bda8e/tumblr_phv9p52qzq1w1y37do1_250.gifv');
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 80px;
+  animation: spin 2s linear infinite, float 4s ease-in-out infinite;
+}
+
+.coin:nth-child(1) {
+  left: 20%;
+}
+
+.delayed-1 {
+  left: 50%;
+  animation-delay: 0.7s;
+}
+
+.delayed-2 {
+  right: 20%;
+  animation-delay: 1.4s;
+}
+
+/* Nuvens passando por trás */
+@keyframes cloud-move {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+.cloud {
+  position: fixed;
+  background-image: url('https://mario.wiki.gallery/images/thumb/c/c9/NSMBU_Cloud_Platform.png/1200px-NSMBU_Cloud_Platform.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 80px;
+  opacity: 0.8;
+  z-index: 1;
+  animation: cloud-move 45s linear infinite;
+}
+
+.cloud-1 {
+  top: 15%;
+  animation-duration: 35s;
+}
+
+.cloud-2 {
+  top: 40%;
+  animation-duration: 45s;
+  animation-delay: 15s;
+}
+
+.cloud-3 {
+  top: 30%;
+  animation-duration: 40s;
+  animation-delay: 7s;
+}
+
+/* Animações */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes hop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes waddle {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(50px);
+  }
+}

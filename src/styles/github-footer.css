@@ -1,0 +1,490 @@
+/* Importa a fonte 'Press Start 2P' do Google Fonts para ser usada no projeto */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Estilos para o container principal do rodapé do GitHub */
+.github-footer {
+  position: relative; /* Define o contexto de posicionamento para elementos filhos posicionados absolutamente */
+  display: flex; /* Habilita o layout flexbox */
+  flex-direction: column; /* Organiza os itens filhos em uma coluna */
+  align-items: center; /* Centraliza os itens filhos horizontalmente */
+  padding: 20px; /* Adiciona espaçamento interno de 20px em todos os lados */
+  background-color: #5c94fc; /* Define a cor de fundo como um azul */
+  border-top: 4px solid #f54242; /* Adiciona uma borda superior vermelha sólida de 4px */
+  z-index: 10; /* Define a ordem de empilhamento (acima de elementos com z-index menor) */
+  font-family: 'Press Start 2P', cursive, Arial, sans-serif; /* Define a família de fontes principal e alternativas */
+  overflow: hidden; /* Esconde qualquer conteúdo que transborde o container */
+  max-height: 30vh; /* Limita a altura máxima a 30% da altura da viewport */
+}
+
+/* Estilos para a versão compacta do rodapé */
+.github-footer.compact {
+  height: auto; /* Permite que a altura seja definida pelo conteúdo */
+  max-height: 30vh; /* Mantém o limite máximo de altura */
+}
+
+/* Estilos para o container do conteúdo dentro do rodapé */
+.footer-content {
+  display: flex; /* Habilita o layout flexbox */
+  width: 100%; /* Ocupa toda a largura disponível do pai (.github-footer) */
+  justify-content: center; /* Centraliza os itens filhos horizontalmente */
+  align-items: flex-start; /* Alinha os itens filhos no topo */
+  gap: 20px; /* Adiciona um espaço de 20px entre os itens filhos */
+  overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder a altura */
+  padding: 0 10px; /* Adiciona espaçamento interno horizontal de 10px */
+  max-height: 25vh; /* Limita a altura máxima a 25% da altura da viewport */
+}
+
+/* Estilos para o título do rodapé */
+.footer-title {
+  position: absolute; /* Posiciona o título em relação ao pai (.github-footer) */
+  top: 10px; /* Distância de 10px do topo do pai */
+  left: 50%; /* Posiciona a borda esquerda no centro horizontal do pai */
+  transform: translateX(-50%); /* Desloca o elemento 50% de sua própria largura para a esquerda para centralizar */
+  font-size: 18px; /* Define o tamanho da fonte */
+  color: #ffffff; /* Define a cor do texto como branco */
+  text-shadow: 2px 2px 0 #000; /* Adiciona uma sombra preta ao texto */
+  font-family: 'Press Start 2P', cursive; /* Define a família de fontes */
+  text-transform: uppercase; /* Transforma o texto para maiúsculas */
+  z-index: 12; /* Define a ordem de empilhamento (acima do .github-footer) */
+}
+
+/* Estilos para a seção do perfil do GitHub */
+.github-profile {
+  display: flex; /* Habilita o layout flexbox */
+  align-items: center; /* Centraliza os itens filhos verticalmente */
+  background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+  padding: 18px; /* Aumenta o espaçamento interno */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  border: 4px solid #c06000; /* Adiciona uma borda marrom sólida de 4px */
+  position: relative; /* Define o contexto de posicionamento */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra */
+  max-width: 60%; /* Define a largura máxima como 60% do container pai */
+  min-width: 275px; /* Define a largura mínima */
+  flex: 0 0 auto; /* Impede que o item cresça ou encolha, baseando-se no seu tamanho 'auto' */
+  margin-top: 30px; /* Adiciona margem no topo para separar do título */
+}
+
+/* Estilos para a área de informações do perfil */
+.profile-info {
+  margin-left: 18px; /* Aumenta a margem esquerda para separar do avatar */
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+/* Estilos para o avatar do GitHub */
+.github-avatar {
+  width: 77px; /* Define a largura */
+  height: 77px; /* Define a altura */
+  border-radius: 50%; /* Torna a imagem circular */
+  border: 3px solid #ffcc00; /* Adiciona uma borda amarela sólida de 3px */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra */
+  flex-shrink: 0; /* Impede que o avatar encolha se não houver espaço */
+}
+
+/* Estilos para o nome de usuário do GitHub */
+.github-username {
+  margin-top: 0; /* Remove a margem superior padrão */
+  font-family: 'Press Start 2P', cursive; /* Define a família de fontes */
+  font-size: 15px; /* Define o tamanho da fonte */
+  color: #b22222; /* Define a cor do texto (vermelho tijolo) */
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); /* Adiciona uma sombra sutil ao texto */
+}
+
+/* Estilos para a biografia do GitHub */
+.github-bio {
+  margin: 7px 0; /* Adiciona margem vertical */
+  font-size: 11px; /* Define o tamanho da fonte */
+  line-height: 1.4; /* Define a altura da linha para melhor legibilidade */
+  color: #333; /* Define a cor do texto (cinza escuro) */
+  max-height: 50px; /* Limita a altura máxima */
+  overflow: hidden; /* Esconde o texto que transborda */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto cortado */
+}
+
+/* Estilos para as estatísticas do GitHub (seguidores, etc.) */
+.github-stats {
+  display: flex; /* Habilita o layout flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  gap: 6px; /* Adiciona espaço entre os itens de estatística */
+  margin-top: 7px; /* Adiciona margem no topo */
+}
+
+/* Estilos para cada item de estatística */
+.github-stats span {
+  display: flex; /* Habilita o layout flexbox */
+  align-items: center; /* Alinha o ícone e o texto verticalmente */
+  font-size: 9px; /* Define o tamanho da fonte */
+  color: #666; /* Define a cor do texto (cinza médio) */
+}
+
+/* Estilos para os ícones dentro das estatísticas */
+.stats-icon {
+  font-style: normal; /* Garante que o estilo da fonte seja normal (caso seja um <i> ou <em>) */
+  margin-right: 5px; /* Adiciona espaço à direita do ícone */
+  font-size: 11px; /* Define o tamanho da fonte do ícone */
+}
+
+/* Estilos para a seção de repositórios do GitHub */
+.github-repos {
+  flex: 0 0 auto; /* Impede que o item cresça ou encolha, baseando-se no seu tamanho 'auto' */
+  width: 48%; /* Define a largura como 48% do container pai */
+  max-width: 500px; /* Define a largura máxima */
+  background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  padding: 15px; /* Adiciona espaçamento interno */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra */
+  border: 4px solid #c06000; /* Adiciona uma borda marrom sólida de 4px */
+  position: relative; /* Define o contexto de posicionamento */
+  margin-top: 30px; /* Adiciona margem no topo para separar do título */
+  max-height: 200px; /* Limita a altura máxima */
+  overflow-y: auto; /* Adiciona rolagem vertical se a lista de repositórios for longa */
+}
+
+/* Estilos para o título (h4) dentro da seção de repositórios */
+.github-repos h4 {
+  font-family: 'Press Start 2P', cursive; /* Define a família de fontes */
+  font-size: 12px; /* Define o tamanho da fonte */
+  color: #b22222; /* Define a cor do texto (vermelho tijolo) */
+  margin-bottom: 10px; /* Adiciona margem inferior */
+  text-align: center; /* Centraliza o texto */
+  text-transform: uppercase; /* Transforma o texto para maiúsculas */
+}
+
+/* Estilos para a lista de repositórios */
+.repo-list {
+  list-style: none; /* Remove os marcadores de lista padrão */
+  padding: 0; /* Remove o padding padrão da lista */
+  margin: 0; /* Remove a margem padrão da lista */
+}
+
+/* Estilos para cada item da lista de repositórios */
+.repo-item {
+  display: flex; /* Habilita o layout flexbox */
+  margin-bottom: 10px; /* Adiciona margem inferior para separar os itens */
+  padding: 8px; /* Adiciona espaçamento interno */
+  background: #f8f8f8; /* Define a cor de fundo (cinza claro) */
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  border-left: 4px solid #ffcc00; /* Adiciona uma borda amarela à esquerda */
+  transition: transform 0.2s, box-shadow 0.2s; /* Adiciona transições suaves para efeitos hover */
+  gap: 10px; /* Adiciona espaço entre o ícone e o conteúdo */
+}
+
+/* Efeito hover para o item do repositório */
+.repo-item:hover {
+  transform: translateY(-2px); /* Move o item ligeiramente para cima */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais pronunciada */
+  background-color: #fff; /* Muda o fundo para branco */
+}
+
+/* Estilos para o ícone do repositório */
+.repo-icon {
+  font-size: 16px; /* Define o tamanho do ícone */
+  color: #b22222; /* Define a cor do ícone (vermelho tijolo) */
+}
+
+/* Estilos para o container do conteúdo do repositório */
+.repo-content {
+  flex: 1; /* Permite que este container cresça para ocupar o espaço restante */
+}
+
+/* Estilos para o nome do repositório (link) */
+.repo-name {
+  font-family: 'Press Start 2P', cursive; /* Define a família de fontes */
+  font-size: 10px; /* Define o tamanho da fonte */
+  color: #b22222; /* Define a cor do texto (vermelho tijolo) */
+  text-decoration: none; /* Remove o sublinhado padrão do link */
+  display: block; /* Faz o link ocupar toda a largura disponível */
+  margin-bottom: 3px; /* Adiciona uma pequena margem inferior */
+}
+
+/* Efeito hover para o nome do repositório */
+.repo-name:hover {
+  color: #ff6600; /* Muda a cor do texto para laranja */
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilos para a descrição do repositório */
+.repo-description {
+  margin: 4px 0; /* Adiciona margem vertical */
+  font-size: 9px; /* Define o tamanho da fonte */
+  color: #555; /* Define a cor do texto (cinza escuro) */
+  line-height: 1.4; /* Define a altura da linha */
+  max-height: 36px; /* Limita a altura máxima (aprox. 2-3 linhas) */
+  overflow: hidden; /* Esconde o texto que transborda */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto cortado */
+}
+
+/* Estilos para as estatísticas do repositório (linguagem, estrelas, forks) */
+.repo-stats {
+  display: flex; /* Habilita o layout flexbox */
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
+  gap: 10px; /* Adiciona espaço entre os itens de estatística */
+  font-size: 8px; /* Define o tamanho da fonte */
+  color: #666; /* Define a cor do texto (cinza médio) */
+  margin-top: 5px; /* Adiciona margem no topo */
+}
+
+/* Estilos para o contêiner da linguagem */
+.language {
+  display: flex; /* Habilita o layout flexbox */
+  align-items: center; /* Alinha o ponto de cor e o nome da linguagem verticalmente */
+}
+
+/* Estilos para o ponto colorido que indica a linguagem */
+.language-dot {
+  display: inline-block; /* Permite definir largura/altura e margem */
+  width: 8px; /* Define a largura */
+  height: 8px; /* Define a altura */
+  border-radius: 50%; /* Torna o ponto circular */
+  margin-right: 5px; /* Adiciona espaço à direita do ponto */
+}
+
+/* Cores específicas para diferentes linguagens de programação */
+.javascript { background-color: #f1e05a; } /* Amarelo */
+.typescript { background-color: #2b7489; } /* Azul */
+.html { background-color: #e34c26; } /* Laranja */
+.css { background-color: #563d7c; } /* Roxo */
+.python { background-color: #3572A5; } /* Azul */
+.java { background-color: #b07219; } /* Marrom-alaranjado */
+
+/* Estilos para o link "Ver Todos" ou similar */
+.view-all {
+  display: block; /* Faz o link ocupar toda a largura */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 10px; /* Adiciona margem no topo */
+  padding: 8px 15px; /* Adiciona espaçamento interno */
+  background: #fffb00; /* Define a cor de fundo (amarelo) */
+  color: #d60909; /* Define a cor do texto (vermelho) */
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  text-decoration: none; /* Remove o sublinhado */
+  font-family: 'Press Start 2P', cursive; /* Define a família de fontes */
+  font-size: 10px; /* Define o tamanho da fonte */
+  transition: all 0.3s; /* Adiciona transição suave para todas as propriedades */
+  border: 2px solid #c06000; /* Adiciona uma borda marrom sólida de 2px */
+}
+
+/* Efeito hover para o link "Ver Todos" */
+.view-all:hover {
+  background: #f54242; /* Muda a cor de fundo para vermelho */
+  color: white; /* Muda a cor do texto para branco */
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do link */
+}
+
+/* Container para as decorações estilo Mario (não interativo) */
+.mario-footer-decorations {
+  position: absolute; /* Posiciona em relação ao .github-footer */
+  width: 100%; /* Ocupa toda a largura do pai */
+  height: 100%; /* Ocupa toda a altura do pai */
+  top: 0; /* Alinha no topo */
+  left: 0; /* Alinha à esquerda */
+  pointer-events: none; /* Impede que as decorações capturem eventos do mouse */
+  z-index: -1; /* Coloca as decorações atrás do conteúdo principal do rodapé */
+}
+
+/* Estilos para os canos decorativos */
+.pipe {
+  position: absolute; /* Posiciona em relação ao .mario-footer-decorations */
+  width: 40px; /* Define a largura */
+  height: 70px; /* Define a altura */
+  background-color: #00a000; /* Define a cor de fundo (verde) */
+  border: 4px solid #007500; /* Define uma borda verde escura */
+  border-radius: 10px 10px 0 0; /* Arredonda os cantos superiores */
+  bottom: 0; /* Alinha na base do container */
+}
+
+/* Posiciona o cano esquerdo */
+.pipe.left {
+  left: 5%; /* Distância de 5% da borda esquerda */
+}
+
+/* Posiciona o cano direito */
+.pipe.right {
+  right: 5%; /* Distância de 5% da borda direita */
+}
+
+/* Estilos para as moedas decorativas */
+.coin {
+  position: absolute; /* Posiciona em relação ao .mario-footer-decorations */
+  width: 20px; /* Define a largura */
+  height: 20px; /* Define a altura */
+  background-color: #ffcc00; /* Define a cor de fundo (amarelo) */
+  border-radius: 50%; /* Torna a moeda circular */
+  border: 2px solid #c06000; /* Adiciona uma borda marrom */
+  animation: coin-spin 2s linear infinite; /* Aplica a animação de giro */
+}
+
+/* Posicionamento específico para cada moeda e delay de animação */
+.coin1 { top: 10%; left: 20%; }
+.coin2 { top: 20%; right: 25%; animation-delay: 0.5s; }
+.coin3 { top: 15%; right: 40%; animation-delay: 1s; }
+
+/* Animação de giro para as moedas */
+@keyframes coin-spin {
+  0% { transform: rotateY(0); } /* Estado inicial */
+  100% { transform: rotateY(360deg); } /* Estado final (giro completo no eixo Y) */
+}
+
+/* Estilos para o estado de carregamento */
+.mario-loading {
+  display: flex; /* Habilita o layout flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  padding: 20px; /* Adiciona espaçamento interno */
+}
+
+/* Estilos para o spinner de carregamento (estilo moeda pulando) */
+.mario-spinner {
+  width: 30px; /* Define a largura */
+  height: 30px; /* Define a altura */
+  background-color: #ffcc00; /* Define a cor de fundo (amarelo) */
+  border-radius: 50%; /* Torna circular */
+  animation: mario-spin 1s infinite; /* Aplica a animação de pulo */
+  margin-bottom: 10px; /* Adiciona margem inferior */
+}
+
+/* Animação de pulo para o spinner */
+@keyframes mario-spin {
+  0% { transform: translateY(0); } /* Posição inicial */
+  50% { transform: translateY(-20px); } /* Posição no topo do pulo */
+  100% { transform: translateY(0); } /* Retorna à posição inicial */
+}
+
+/* Estilos para o estado de erro */
+.mario-error {
+  display: flex; /* Habilita o layout flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  padding: 20px; /* Adiciona espaçamento interno */
+}
+
+/* Estilos para a imagem no estado de erro */
+.mario-error img {
+  width: 50px; /* Define a largura */
+  height: 50px; /* Define a altura */
+  margin-bottom: 10px; /* Adiciona margem inferior */
+}
+
+/* Estilos para a mensagem exibida quando não há repositórios */
+.no-repos {
+  text-align: center; /* Centraliza o texto */
+  font-size: 12px; /* Define o tamanho da fonte */
+  color: #666; /* Define a cor do texto (cinza médio) */
+  padding: 15px; /* Adiciona espaçamento interno */
+}
+
+/* Estilos base para os personagens animados (Mario e Luigi) */
+.mario-character,
+.luigi-character {
+  position: absolute; /* Posiciona em relação ao .github-footer */
+  width: 40px; /* Define a largura */
+  height: 40px; /* Define a altura */
+  background-size: contain; /* Ajusta a imagem de fundo para caber no container */
+  background-repeat: no-repeat; /* Impede a repetição da imagem de fundo */
+  z-index: 15; /* Coloca os personagens acima da maioria dos outros elementos */
+}
+
+/* Estilos específicos para o Mario */
+.mario-character {
+  /* Define a imagem de fundo como um SVG simples do Mario */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="20" fill="red"/><rect x="20" y="30" width="60" height="20" fill="red"/><rect x="30" y="50" width="40" height="20" fill="blue"/><rect x="20" y="70" width="20" height="20" fill="brown"/><rect x="60" y="70" width="20" height="20" fill="brown"/></svg>');
+  bottom: 15px; /* Distância da base do rodapé */
+  left: -50px; /* Posição inicial fora da tela à esquerda */
+  animation: run-right 15s linear infinite; /* Aplica a animação de corrida para a direita */
+}
+
+/* Estilos específicos para o Luigi */
+.luigi-character {
+  /* Define a imagem de fundo como um SVG simples do Luigi */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="20" fill="green"/><rect x="20" y="30" width="60" height="20" fill="green"/><rect x="30" y="50" width="40" height="20" fill="blue"/><rect x="20" y="70" width="20" height="20" fill="brown"/><rect x="60" y="70" width="20" height="20" fill="brown"/></svg>');
+  bottom: 15px; /* Distância da base do rodapé */
+  right: -50px; /* Posição inicial fora da tela à direita */
+  animation: run-left 18s linear infinite; /* Aplica a animação de corrida para a esquerda */
+  animation-delay: 3s; /* Inicia a animação do Luigi com um atraso */
+}
+
+/* Animação de corrida da esquerda para a direita (e volta) */
+@keyframes run-right {
+  0% { left: -50px; transform: scaleX(1); } /* Começa fora da tela à esquerda, virado para direita */
+  45% { left: 100%; transform: scaleX(1); } /* Chega ao lado direito da tela, virado para direita */
+  50% { left: 100%; transform: scaleX(-1); } /* Vira para a esquerda no lado direito */
+  95% { left: -50px; transform: scaleX(-1); } /* Chega de volta ao lado esquerdo, virado para esquerda */
+  100% { left: -50px; transform: scaleX(1); } /* Vira para a direita novamente no lado esquerdo (reinicia) */
+}
+
+/* Animação de corrida da direita para a esquerda (e volta) */
+@keyframes run-left {
+  0% { right: -50px; transform: scaleX(-1); } /* Começa fora da tela à direita, virado para esquerda */
+  45% { right: 100%; transform: scaleX(-1); } /* Chega ao lado esquerdo da tela, virado para esquerda */
+  50% { right: 100%; transform: scaleX(1); } /* Vira para a direita no lado esquerdo */
+  95% { right: -50px; transform: scaleX(1); } /* Chega de volta ao lado direito, virado para direita */
+  100% { right: -50px; transform: scaleX(-1); } /* Vira para a esquerda novamente no lado direito (reinicia) */
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Estilos para telas menores (como tablets e celulares grandes em modo paisagem) */
+/* (Este bloco veio do segundo trecho de código fornecido) */
+@media (max-width: 768px) {
+  /* Ajusta o conteúdo do rodapé para layout de coluna */
+  .footer-content {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+  }
+
+  /* Faz o perfil e os repositórios ocuparem quase toda a largura */
+  .github-profile,
+  .github-repos {
+    max-width: 95%; /* Define a largura máxima */
+    width: 100%; /* Tenta ocupar 100% da largura disponível (limitado pelo max-width) */
+  }
+
+  /* Remove a limitação de altura do rodapé compacto */
+  .github-footer.compact {
+    max-height: unset; /* Remove a restrição de altura máxima */
+    height: auto; /* Permite que a altura seja definida pelo conteúdo */
+  }
+
+  /* Remove a limitação de altura e permite rolagem visível no conteúdo */
+  .footer-content {
+    max-height: unset; /* Remove a restrição de altura máxima */
+    overflow-y: visible; /* Permite que o conteúdo transborde verticalmente (sem barra de rolagem interna) */
+  }
+}
+
+/* Estilos adicionais para telas menores (combinando com o bloco acima) */
+/* (Este bloco veio do primeiro trecho de código fornecido - github-footer.css) */
+@media (max-width: 768px) {
+  /* Ajusta o padding e a altura máxima geral do rodapé */
+  .github-footer {
+    padding: 10px; /* Reduz o espaçamento interno */
+    max-height: 25vh; /* Reduz a altura máxima permitida para o rodapé */
+  }
+
+  /* Ajusta o layout do conteúdo do rodapé (reforça e adiciona gap) */
+  .footer-content {
+    flex-direction: column; /* Empilha os itens verticalmente (reforço) */
+    gap: 10px; /* Reduz o espaço entre os itens */
+    max-height: 20vh; /* Reduz a altura máxima permitida para o conteúdo interno */
+    /* Nota: overflow-y: auto ainda se aplica do estilo base, permitindo rolagem interna se necessário */
+  }
+
+  /* Reduz o tamanho da fonte do título */
+  .footer-title {
+    font-size: 14px; /* Diminui o tamanho da fonte do título */
+  }
+}
+
+/* Estilos específicos para quando o teclado virtual está aberto em dispositivos móveis */
+/* (Detecta pela redução drástica da altura da viewport) */
+/* (Este bloco veio do primeiro trecho de código fornecido - github-footer.css) */
+@media (max-height: 450px) and (max-width: 768px) {
+  /* Muda o posicionamento do rodapé para evitar sobreposição com o teclado */
+  .github-footer {
+    position: static; /* Remove o posicionamento relativo/fixo, fazendo-o fluir com o conteúdo */
+    max-height: none; /* Remove a restrição de altura máxima */
+  }
+
+  /* Oculta a versão compacta do rodapé quando o espaço vertical é muito limitado */
+  .github-footer.compact {
+    display: none; /* Esconde completamente o rodapé compacto */
+  }
+}

@@ -1,131 +1,166 @@
+/* search-bar.css */
+
+/* Adicione estas regras para responsividade */
+@media (max-width: 768px) { /* Aplica estilos para telas com largura máxima de 768 pixels (telas menores, como tablets e alguns celulares) */
+  .search-container {
+    margin: 0 auto 1rem; /* Define as margens superior e inferior como 0, centraliza horizontalmente e adiciona 1rem de margem inferior */
+    max-width: 100%; /* Garante que o contêiner da pesquisa não seja maior que seu elemento pai */
+  }
+
+  .search-input {
+    padding: 10px 0; /* Reduz o preenchimento superior e inferior do campo de entrada para economizar espaço em telas menores */
+  }
+
+  .search-input-wrapper {
+    padding: 0 12px; /* Define o preenchimento esquerdo e direito do wrapper do input para espaçamento interno */
+  }
+
+  /* Impede que a barra de pesquisa fique no fundo quando o teclado está aberto em dispositivos móveis */
+  .search-form:focus-within { /* Aplica estilos quando o formulário de pesquisa ou um de seus elementos internos ganha foco (como o input) */
+    position: relative; /* Define a posição como relativa para permitir o uso de z-index */
+    z-index: 1000; /* Garante que o formulário de pesquisa fique sobre outros elementos, evitando que seja coberto pelo teclado virtual */
+  }
+}
+
+/* Ajustes quando o teclado estiver aberto em dispositivos móveis em certas orientações */
+@media (max-height: 450px) and (max-width: 768px) { /* Aplica estilos para telas com altura máxima de 450 pixels E largura máxima de 768 pixels (cenário comum quando o teclado está aberto em alguns celulares na horizontal) */
+  .search-container {
+    position: sticky; /* Fixa o contêiner da pesquisa no topo da tela enquanto o usuário rola */
+    top: 0; /* Garante que o contêiner fixado permaneça no topo */
+    background-color: #f5f8ff; /* Define uma cor de fundo para o contêiner fixo, melhorando a visibilidade sobre o conteúdo rolável */
+    z-index: 100; /* Garante que o contêiner fixo fique sobre outros elementos */
+    padding: 10px 0; /* Adiciona um pequeno preenchimento superior e inferior para espaçamento visual */
+  }
+}
+
 .search-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  position: relative; /* Define a posição como relativa para que elementos filhos possam ser posicionados relativamente a ele */
+  width: 100%; /* Garante que o contêiner da pesquisa ocupe toda a largura do seu elemento pai */
+  max-width: 600px; /* Define uma largura máxima para o contêiner da pesquisa, evitando que ele fique muito largo em telas maiores */
+  margin: 0 auto 2rem; /* Define as margens superior e inferior como 0, centraliza horizontalmente e adiciona 2rem de margem inferior para espaçamento */
 }
 
 .search-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
+  display: flex; /* Utiliza o modelo de layout flexbox para organizar os elementos filhos */
+  flex-direction: column; /* Define a direção dos itens flexíveis como coluna, empilhando-os verticalmente por padrão */
+  gap: 12px; /* Adiciona um espaçamento de 12px entre os elementos filhos (input e botão) */
+  width: 100%; /* Garante que o formulário ocupe toda a largura do seu elemento pai */
 }
 
 .search-input-wrapper {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 2px solid #e1e5ee;
-  border-radius: 8px;
-  padding: 0 16px;
-  transition: all 0.2s ease;
-  position: relative;
+  display: flex; /* Utiliza o modelo de layout flexbox para alinhar o ícone, o input e o botão de limpar */
+  align-items: center; /* Alinha verticalmente os itens flexíveis ao centro */
+  background-color: white; /* Define a cor de fundo do wrapper como branco */
+  border: 2px solid #e1e5ee; /* Adiciona uma borda de 2 pixels com a cor #e1e5ee */
+  border-radius: 8px; /* Arredonda os cantos do wrapper em 8 pixels */
+  padding: 0 16px; /* Define o preenchimento superior e inferior como 0 e o preenchimento esquerdo e direito como 16 pixels para espaçamento interno */
+  transition: all 0.2s ease; /* Adiciona uma transição suave para todas as propriedades com duração de 0.2 segundos e função de easing ease */
+  position: relative; /* Define a posição como relativa para que elementos filhos possam ser posicionados relativamente a ele (usado para o spinner) */
 }
 
 .search-input-wrapper.focused {
-  border-color: #0066FF;
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  border-color: #0066FF; /* Altera a cor da borda quando o input dentro do wrapper está focado */
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15); /* Adiciona uma sombra ao redor do wrapper quando o input está focado */
 }
 
 .search-icon {
-  color: #a0a9bc;
-  margin-right: 12px;
+  color: #a0a9bc; /* Define a cor do ícone de pesquisa */
+  margin-right: 12px; /* Adiciona uma margem à direita do ícone para separá-lo do input */
 }
 
 .search-input {
-  flex: 1;
-  padding: 14px 0;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  color: #333;
-  width: calc(100% - 48px);
+  flex: 1; /* Permite que o input cresça para ocupar todo o espaço disponível dentro do wrapper */
+  padding: 14px 0; /* Define o preenchimento superior e inferior do input como 14 pixels e o preenchimento esquerdo e direito como 0 */
+  border: none; /* Remove a borda padrão do input */
+  outline: none; /* Remove a borda de foco padrão do navegador */
+  font-size: 1rem; /* Define o tamanho da fonte do texto do input */
+  color: #333; /* Define a cor do texto do input */
+  width: calc(100% - 48px); /* Define a largura do input subtraindo o espaço ocupado pelo ícone e a margem (16px de padding esquerdo + 12px de margem direita + 16px de padding direito = 44px, arredondado para 48px para segurança) */
 }
 
 .search-input::placeholder {
-  color: #a0a9bc;
+  color: #a0a9bc; /* Define a cor do texto de placeholder do input */
 }
 
 .clear-button {
-  background: none;
-  border: none;
-  color: #a0a9bc;
-  cursor: pointer;
-  padding: 8px;
-  font-size: 0.9rem;
-  border-radius: 50%;
-  transition: all 0.2s;
+  background: none; /* Remove o fundo padrão do botão */
+  border: none; /* Remove a borda padrão do botão */
+  color: #a0a9bc; /* Define a cor do texto do botão */
+  cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
+  padding: 8px; /* Adiciona um preenchimento de 8 pixels ao redor do texto do botão */
+  font-size: 0.9rem; /* Define o tamanho da fonte do texto do botão */
+  border-radius: 50%; /* Arredonda os cantos do botão para criar um formato circular */
+  transition: all 0.2s; /* Adiciona uma transição suave para todas as propriedades com duração de 0.2 segundos */
 }
 
 .clear-button:hover {
-  background-color: #f5f8ff;
-  color: #0066FF;
+  background-color: #f5f8ff; /* Altera a cor de fundo ao passar o mouse */
+  color: #0066FF; /* Altera a cor do texto ao passar o mouse */
 }
 
 .search-submit-button {
-  padding: 14px 24px;
-  background-color: #0066FF;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 14px 24px; /* Define o preenchimento superior e inferior como 14 pixels e o preenchimento esquerdo e direito como 24 pixels */
+  background-color: #0066FF; /* Define a cor de fundo do botão */
+  border: none; /* Remove a borda padrão do botão */
+  border-radius: 8px; /* Arredonda os cantos do botão em 8 pixels */
+  color: white; /* Define a cor do texto do botão como branco */
+  font-weight: 600; /* Define a espessura da fonte do texto como semibold */
+  cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
+  transition: all 0.3s; /* Adiciona uma transição suave para todas as propriedades com duração de 0.3 segundos */
 }
 
 .search-submit-button:hover:not(:disabled) {
-  background-color: #0052cc;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 102, 255, 0.15);
+  background-color: #0052cc; /* Escurece a cor de fundo ao passar o mouse se o botão não estiver desabilitado */
+  transform: translateY(-2px); /* Move o botão 2 pixels para cima ao passar o mouse */
+  box-shadow: 0 6px 12px rgba(0, 102, 255, 0.15); /* Adiciona uma sombra ao redor do botão ao passar o mouse */
 }
 
 .search-submit-button:disabled {
-  background-color: #b3d1ff;
-  cursor: not-allowed;
-  opacity: 0.7;
+  background-color: #b3d1ff; /* Define uma cor de fundo mais clara quando o botão está desabilitado */
+  cursor: not-allowed; /* Altera o cursor para indicar que o elemento não pode ser interativo */
+  opacity: 0.7; /* Diminui a opacidade para indicar visualmente que o botão está desabilitado */
 }
 
 .search-submit-button.loading {
-  position: relative;
+  position: relative; /* Define a posição como relativa para posicionar o spinner dentro do botão */
 }
 
 /* Mini spinner para indicação de busca de sugestões */
 .mini-loader {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(0, 102, 255, 0.2);
-  border-radius: 50%;
-  border-top-color: #0066FF;
-  animation: spin 1s ease-in-out infinite;
-  margin-right: 8px;
+  width: 16px; /* Define a largura do spinner */
+  height: 16px; /* Define a altura do spinner */
+  border: 2px solid rgba(0, 102, 255, 0.2); /* Define a borda com uma cor azul clara e transparente */
+  border-radius: 50%; /* Arredonda os cantos para criar um círculo */
+  border-top-color: #0066FF; /* Define a cor da borda superior como azul mais escuro */
+  animation: spin 1s ease-in-out infinite; /* Aplica a animação 'spin' com duração de 1 segundo, easing ease-in-out e repetição infinita */
+  margin-right: 8px; /* Adiciona uma margem à direita do spinner para separá-lo do texto */
 }
 
 .search-input-wrapper.searching .search-icon {
-  color: #0066FF;
-  animation: pulse 1.5s infinite;
+  color: #0066FF; /* Altera a cor do ícone de pesquisa quando o wrapper está na classe 'searching' */
+  animation: pulse 1.5s infinite; /* Aplica a animação 'pulse' ao ícone com duração de 1.5 segundos e repetição infinita */
 }
 
 @keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
+  0% { opacity: 0.6; } /* No início da animação, a opacidade é 0.6 */
+  50% { opacity: 1; } /* No meio da animação, a opacidade é 1 */
+  100% { opacity: 0.6; } /* No final da animação, a opacidade retorna para 0.6 */
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to { transform: rotate(360deg); } /* No final da animação, o elemento é rotacionado em 360 graus */
 }
 
-@media (min-width: 640px) {
+@media (min-width: 640px) { /* Aplica estilos para telas com largura mínima de 640 pixels (telas maiores, como alguns tablets e desktops) */
   .search-form {
-    flex-direction: row;
+    flex-direction: row; /* Altera a direção dos itens flexíveis para linha, colocando o input e o botão lado a lado */
   }
-  
+
   .search-input-wrapper {
-    flex: 1;
+    flex: 1; /* Permite que o wrapper do input cresça para ocupar todo o espaço disponível na linha */
   }
-  
+
   .search-submit-button {
-    min-width: 120px;
+    min-width: 120px; /* Define uma largura mínima para o botão de submit */
   }
 }
