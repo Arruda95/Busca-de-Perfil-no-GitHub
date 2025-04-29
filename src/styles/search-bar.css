@@ -163,4 +163,76 @@
   .search-submit-button {
     min-width: 120px; /* Define uma largura mínima para o botão de submit */
   }
+
+  /* Ajustes para dispositivos muito pequenos (smartphones) */
+@media (max-width: 480px) {
+  .search-container {
+    margin: 0 auto 1rem;
+  }
+  
+  /* Ajustes para botão de buscar em telas pequenas */
+  .search-submit-button {
+    padding: 10px 16px; /* Reduz o padding */
+    font-size: 0.9rem; /* Reduz tamanho da fonte */
+    min-width: 100px; /* Reduz largura mínima */
+  }
+  
+  /* Ajuste para input em telas pequenas */
+  .search-input {
+    padding: 10px 0; /* Reduz o padding */
+    font-size: 0.9rem; /* Reduz tamanho da fonte */
+  }
+  
+  /* Reduz o ícone de busca */
+  .search-icon, .clear-button {
+    font-size: 0.9rem;
+  }
+  
+  /* Garante que o formulário seja posicionado corretamente */
+  .search-form {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Ajustes para dispositivos muito pequenos (smartphones pequenos) */
+@media (max-width: 320px) {
+  .search-submit-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+  
+  .search-input {
+    padding: 8px 0;
+    font-size: 0.85rem;
+  }
+  
+  .search-input-wrapper {
+    padding: 0 12px;
+  }
+  
+  .search-icon, .clear-button {
+    font-size: 0.85rem;
+  }
+}
+
+/* Quando em layout desktop, as sugestões devem aparecer abaixo do input, não do botão */
+@media (min-width: 640px) {
+  .search-input-wrapper {
+    position: relative; /* Faz o wrapper ser relative */
+  }
+  
+  /* Posiciona as sugestões abaixo do input quando em desktop */
+  .suggestions-container {
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+
+
+
 }

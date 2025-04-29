@@ -1,92 +1,96 @@
 /* Container principal das sugestões */
 .suggestions-container {
-  position: absolute; /* Posiciona abaixo do input */
-  top: 100%; /* Começa exatamente abaixo do elemento pai */
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  margin-top: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease;
   left: 0;
   right: 0;
-  background-color: white; /* Fundo branco */
-  border-radius: 0 0 8px 8px; /* Bordas arredondadas na parte inferior */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  z-index: 10; /* Garante que fique acima de outros elementos */
-  margin-top: 4px; /* Pequeno espaçamento do input */
-  max-height: 320px; /* Altura máxima padrão */
-  overflow-y: auto; /* Permite rolagem se ultrapassar a altura */
-  animation: fadeIn 0.2s ease; /* Animação de entrada */
+  /* Importante: Muda a posição para ficar abaixo do botão de buscar quando em layout mobile */
+  top: 100%; /* Isso posiciona logo abaixo do elemento pai */
+}
+
+/* Estilos para telas menores que 640px (mobile) */
+@media (max-width: 639px) {
+  .suggestions-container {
+    /* Quando em telas pequenas, as sugestões devem aparecer
+       abaixo do botão de buscar, não apenas do input */
+    top: calc(100% + 12px); /* 12px é o espaço entre o input e o botão */
+  }
+  
+  /* Faz a busca ter position: relative para que as sugestões
+     sejam posicionadas em relação a ela */
+  .search-form {
+    position: relative;
+  }
 }
 
 /* Estiliza a lista de sugestões */
 .suggestions-list {
-  list-style: none; /* Remove marcadores da lista */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 /* Estiliza cada item de sugestão */
 .suggestion-item {
-  display: flex; /* Alinha o avatar e o nome lado a lado */
-  align-items: center; /* Centraliza verticalmente */
-  padding: 12px 16px; /* Espaçamento interno */
-  cursor: pointer; /* Cursor de mãozinha ao passar por cima */
-  transition: background-color 0.2s; /* Animação de hover */
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-/* Cor de fundo ao passar o mouse sobre uma sugestão */
 .suggestion-item:hover {
   background-color: #f5f8ff;
 }
 
-/* Linha divisória entre os itens, exceto o último */
-.suggestion-item:not(:last-child) {
-  border-bottom: 1px solid #eaeef8;
-}
-
-/* Estiliza o avatar do usuário */
+/* Estiliza o avatar do usuário na sugestão */
 .suggestion-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%; /* Deixa o avatar redondo */
-  margin-right: 12px; /* Espaço entre avatar e nome */
-  object-fit: cover; /* Mantém a imagem proporcional sem distorcer */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 12px;
+  border: 2px solid #e1e5ee;
 }
 
-/* Estiliza o nome de usuário */
+/* Estiliza o nome de usuário na sugestão */
 .suggestion-username {
-  font-size: 0.9rem; /* Tamanho de fonte ajustado */
-  color: #333; /* Cor escura para o texto */
+  font-weight: 500;
+  color: #333;
 }
 
-/* Animação de fadeIn (suaviza a entrada do container) */
+/* Define a animação de fade in */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Estilos para telas menores que 768px (dispositivos móveis) */
-@media (max-width: 768px) {
-  .suggestions-container {
-    max-height: 150px; /* Reduz altura para caber melhor na tela */
-    position: fixed; /* Fixado na tela, não mais relativo ao input */
-    width: calc(100% - 40px); /* Ajusta largura com margens */
-    margin-top: 0; /* Remove o espaço superior */
-  }
-
+/* Ajustes responsivos para telas pequenas */
+@media (max-width: 480px) {
   .suggestion-item {
-    padding: 8px 12px; /* Reduz o espaçamento interno */
+    padding: 8px 12px;
   }
-
+  
   .suggestion-avatar {
-    width: 24px; /* Diminui o tamanho do avatar */
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
   }
-}
-
-/* Estilos específicos para telas muito pequenas (máx 500px) */
-@media (max-width: 500px) {
-  .suggestions-container {
-    position: fixed; /* Mantém fixo */
-    top: auto; /* Não fixa o topo */
-    left: 20px; /* Deixa margens laterais */
-    right: 20px;
-    max-height: 250px; /* Um pouco mais de altura que no breakpoint anterior */
+  
+  .suggestion-username {
+    font-size: 0.9rem;
   }
 }

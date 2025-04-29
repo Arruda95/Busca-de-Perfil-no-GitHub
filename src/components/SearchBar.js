@@ -110,9 +110,18 @@ const SearchBar = ({ onSearch, isLoading, useMarioTheme = false }) => {
 
   // Limpa o campo de input
   const clearInput = () => {
-    setUsername('');
-    setSuggestions([]);
-    setShowSuggestions(false);
+    setUsername(''); // Limpa o valor do input
+    setSuggestions([]); // Limpa as sugestões
+    setShowSuggestions(false); // Esconde as sugestões
+  };
+
+  // ADICIONE A FUNÇÃO AQUI, LOGO ABAIXO ⬇️
+  // Adiciona um manipulador para a tecla Enter
+  const handleKeyDown = (e) => {
+    // Se a tecla pressionada for Enter, fecha as sugestões
+    if (e.key === 'Enter') {
+      setShowSuggestions(false);
+    }
   };
 
   // Define classes dinâmicas para o wrapper do input
@@ -131,7 +140,7 @@ const SearchBar = ({ onSearch, isLoading, useMarioTheme = false }) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)} // Atualiza o valor conforme digita
             onFocus={() => {
-              setHasFocus(true);
+              setHasFocus(true); // Indica que o input está focado
               if (suggestions.length > 0) {
                 setShowSuggestions(true); // Mostra sugestões se já existirem
               }
@@ -141,6 +150,7 @@ const SearchBar = ({ onSearch, isLoading, useMarioTheme = false }) => {
             className={`search-input ${useMarioTheme ? 'mario-input' : ''}`}
             aria-label="Nome de usuário GitHub"
             autoComplete="off"
+            onKeyDown={handleKeyDown} // Adiciona o manipulador de tecla
           />
           {isSearching && (
             <div className="mini-loader" /> // Mostra mini loader enquanto busca
@@ -164,7 +174,6 @@ const SearchBar = ({ onSearch, isLoading, useMarioTheme = false }) => {
           {isLoading ? 'Buscando...' : 'Buscar'}
         </button>
       </form>
-      
       {/* Renderiza sugestões se existirem */}
       <UserSuggestions 
         suggestions={suggestions} 

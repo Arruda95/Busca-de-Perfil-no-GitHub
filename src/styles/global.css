@@ -1,106 +1,182 @@
+/* --- Reset e Estilos Base --- */
+
 /* Reset geral para remover margens e paddings padrão dos navegadores */
 * {
   margin: 0;  /* Remove margem externa padrão */
   padding: 0; /* Remove espaçamento interno padrão */
-  box-sizing: border-box; /* Faz com que padding e border sejam incluídos na largura/altura total do elemento */
+  box-sizing: border-box; /* Inclui padding e borda dentro da largura/altura total do elemento */
 }
 
 /* Estilos base para o corpo do documento */
 body {
-  /* Define a pilha de fontes, priorizando 'Inter' e usando fontes de sistema como fallback */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-  background-color: #f5f8ff; /* Define uma cor de fundo azul clara */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif; /* Define a pilha de fontes */
+  background-color: #f5f8ff; /* Define a cor de fundo azul clara */
   color: #333; /* Define a cor padrão do texto como cinza escuro */
   line-height: 1.5; /* Define a altura da linha para melhor legibilidade */
 }
 
-/* Estilos para o container principal da aplicação */
+/* Estilos base para html e body para evitar rolagem horizontal */
+html, body {
+  overflow-x: hidden; /* Impede a rolagem lateral */
+  width: 100%; /* Garante largura total */
+  height: 100%; /* Garante altura total */
+}
+
+/* Container principal da aplicação */
 .app-container {
-  min-height: 100vh; /* Garante que o container ocupe pelo menos toda a altura da viewport */
+  min-height: 100vh; /* Garante altura mínima igual a 100% da viewport */
   display: flex; /* Habilita o layout flexbox */
-  flex-direction: column; /* Organiza os filhos (header, content, footer) em coluna */
-  max-width: 1200px; /* Define a largura máxima do container */
-  margin: 0 auto; /* Centraliza o container horizontalmente na página */
-  padding: 0 20px; /* Adiciona espaçamento interno nas laterais */
+  flex-direction: column; /* Organiza os elementos filhos em coluna */
+  max-width: 1200px; /* Define largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 20px; /* Espaçamento lateral padrão */
 }
 
-/* Estilos para o cabeçalho da aplicação */
+/* Conteúdo principal */
+main {
+  flex: 1 0 auto; /* Permite que o conteúdo principal ocupe espaço restante */
+}
+
+/* Rodapé específico do GitHub */
+.github-footer {
+  flex-shrink: 0; /* Impede que o footer encolha */
+}
+
+/* --- Estilos de Cabeçalho --- */
+
 .app-header {
-  text-align: center; /* Centraliza o texto dentro do cabeçalho */
-  padding: 3rem 0 2rem; /* Adiciona espaçamento interno vertical (48px em cima, 32px embaixo) */
+  text-align: center; /* Centraliza o conteúdo do cabeçalho */
+  padding: 3rem 0 2rem; /* Espaçamento vertical */
 }
 
-/* Estilos para o título principal da aplicação */
+/* Estilo para o título principal */
 .app-title {
-  color: #0066FF; /* Define a cor do texto como azul */
-  font-size: 2.5rem; /* Define o tamanho da fonte (40px) */
-  font-weight: 700; /* Define o peso da fonte como negrito */
-  margin-bottom: 0.5rem; /* Adiciona margem inferior (8px) */
+  color: #0066FF; /* Azul */
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700; /* Negrito */
+  margin-bottom: 0.5rem; /* Espaço inferior */
 }
 
-/* Estilos para o subtítulo da aplicação */
+/* Estilo para o subtítulo */
 .app-subtitle {
-  color: #666; /* Define a cor do texto como cinza médio */
-  font-size: 1rem; /* Define o tamanho da fonte (16px) */
-  max-width: 500px; /* Define a largura máxima do subtítulo */
-  margin: 0 auto; /* Centraliza o subtítulo horizontalmente */
+  color: #666; /* Cinza médio */
+  font-size: 1rem; /* 16px */
+  max-width: 500px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-/* Estilos para a área de conteúdo principal */
+/* --- Área de Conteúdo Principal --- */
+
 .app-content {
-  flex: 1; /* Permite que esta área cresça para ocupar o espaço vertical restante */
-  width: 100%; /* Ocupa toda a largura disponível */
-  max-width: 800px; /* Define a largura máxima da área de conteúdo */
-  margin: 0 auto; /* Centraliza a área de conteúdo horizontalmente */
-  padding: 2rem 0; /* Adiciona espaçamento interno vertical (32px) */
+  flex: 1; /* Ocupa o espaço disponível */
+  width: 100%; /* Largura total */
+  max-width: 800px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza */
+  padding: 2rem 0; /* Espaçamento vertical */
 }
 
-/* Estilos para o rodapé da aplicação */
+/* --- Rodapé da Aplicação --- */
+
 .app-footer {
-  text-align: center; /* Centraliza o texto */
-  padding: 2rem 0; /* Adiciona espaçamento interno vertical (32px) */
-  color: #888; /* Define a cor do texto como cinza claro */
-  font-size: 0.9rem; /* Define o tamanho da fonte (14.4px) */
+  text-align: center; /* Centraliza o conteúdo */
+  padding: 2rem 0; /* Espaçamento vertical */
+  color: #888; /* Cinza claro */
+  font-size: 0.9rem; /* 14.4px */
 }
 
-/* --- Responsividade Base --- */
+/* --- Estilos para Responsividade --- */
 
-/* Estilos aplicados quando a largura da tela é 768px ou menor (tablets e celulares) */
+/* Ajustes para telas até 768px */
 @media (max-width: 768px) {
-  /* Ajusta o tamanho do título principal para telas menores */
   .app-title {
-    font-size: 2rem; /* Reduz o tamanho da fonte para 32px */
+    font-size: 2rem; /* Reduz o tamanho do título */
   }
   
-  /* Reduz o padding vertical do conteúdo principal */
   .app-content {
-    padding: 1rem 0; /* Reduz o espaçamento interno vertical para 16px */
+    padding: 1rem 0; /* Reduz padding do conteúdo */
+  }
+  
+  .app-container {
+    padding: 0 10px; /* Reduz padding lateral */
+    min-height: calc(100vh - 60px); /* Ajusta altura mínima */
+  }
+  
+  .app-header {
+    padding: 1.5rem 0 1rem; /* Reduz espaço vertical */
+  }
+  
+  .app-subtitle {
+    font-size: 0.9rem; /* Reduz o tamanho do subtítulo */
+  }
+  
+  .app-content {
+    margin-bottom: 70px; /* Margem inferior para evitar sobreposição do teclado */
   }
 }
 
-/* --- Estilos para Teclado Virtual Aberto (depende da classe 'keyboard-open' no body) --- */
+/* Ajustes para altura muito pequena */
+@media (max-height: 450px) and (max-width: 768px) {
+  .app-header {
+    padding: 0.8rem 0 0.5rem; /* Reduz espaço vertical */
+  }
+  
+  .app-title {
+    font-size: 1.5rem; /* Reduz ainda mais o título */
+  }
+  
+  .app-subtitle {
+    display: none; /* Esconde o subtítulo */
+  }
+}
 
-/* Estilos aplicados ao rodapé do GitHub quando o teclado está aberto */
+/* Ajustes para telas muito pequenas (320px ou menos) */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px; /* Reduz o tamanho da fonte geral */
+  }
+  
+  .search-input-wrapper {
+    padding: 0 8px; /* Reduz padding dos inputs */
+  }
+  
+  .search-input {
+    font-size: 14px; /* Reduz o tamanho da fonte dos inputs */
+  }
+}
+
+/* Ajustes para telas médias */
+@media (min-width: 321px) and (max-width: 768px) {
+  .app-container {
+    padding: 0 20px; /* Ajuste intermediário de padding */
+  }
+}
+
+/* Ajustes para telas grandes */
+@media (min-width: 769px) {
+  .app-container {
+    padding: 0 30px; /* Padding maior em telas grandes */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza */
+  }
+}
+
+/* --- Teclado Virtual Aberto (Mobile) --- */
+
 body.keyboard-open .github-footer {
-  position: static; /* Muda o rodapé de 'fixed' ou 'relative' para 'static', fazendo-o rolar com a página */
-  max-height: none; /* Remove qualquer restrição de altura máxima que ele possa ter */
-  /* Isso evita que o rodapé fixo cubra campos de input quando o teclado aparece */
+  position: static; /* Deixa o rodapé fluir com a página */
+  max-height: none; /* Remove limitações de altura */
 }
 
-/* Estilos aplicados ao conteúdo principal quando o teclado está aberto */
 body.keyboard-open .app-content {
-  margin-bottom: 20px; /* Adiciona uma margem inferior extra para criar espaço acima do teclado/rodapé estático */
+  margin-bottom: 20px; /* Espaço extra acima do teclado */
 }
-
 
 /* --- Classes Utilitárias --- */
 
-/* Utilitário para centralizar texto */
-.text-center {
-  text-align: center;
-}
+/* Alinhamento de texto */
+.text-center { text-align: center; }
 
-/* Utilitários de margem superior (mt = margin-top) */
+/* Margens superiores */
 .mt-1 { margin-top: 0.25rem; } /* 4px */
 .mt-2 { margin-top: 0.5rem; }  /* 8px */
 .mt-3 { margin-top: 0.75rem; } /* 12px */
@@ -108,7 +184,7 @@ body.keyboard-open .app-content {
 .mt-6 { margin-top: 1.5rem; } /* 24px */
 .mt-8 { margin-top: 2rem; }   /* 32px */
 
-/* Utilitários de margem inferior (mb = margin-bottom) */
+/* Margens inferiores */
 .mb-1 { margin-bottom: 0.25rem; } /* 4px */
 .mb-2 { margin-bottom: 0.5rem; }  /* 8px */
 .mb-3 { margin-bottom: 0.75rem; } /* 12px */
@@ -116,144 +192,91 @@ body.keyboard-open .app-content {
 .mb-6 { margin-bottom: 1.5rem; } /* 24px */
 .mb-8 { margin-bottom: 2rem; }   /* 32px */
 
-/* Utilitários de peso da fonte (font-weight) */
+/* Peso da fonte */
 .font-bold { font-weight: 700; } /* Negrito */
 .font-semibold { font-weight: 600; } /* Semi-negrito */
 .font-medium { font-weight: 500; } /* Médio */
 
-/* Utilitários de tamanho da fonte (font-size) */
+/* Tamanho da fonte */
 .text-sm { font-size: 0.875rem; } /* 14px */
-.text-base { font-size: 1rem; }    /* 16px (geralmente o padrão) */
+.text-base { font-size: 1rem; }    /* 16px */
 .text-lg { font-size: 1.125rem; } /* 18px */
 .text-xl { font-size: 1.25rem; }  /* 20px */
 .text-2xl { font-size: 1.5rem; }   /* 24px */
 
-/* Utilitários de cor do texto */
-.text-primary { color: #0066FF; } /* Azul primário */
-.text-error { color: #ff3333; }   /* Vermelho para erros */
-.text-success { color: #28a745; } /* Verde para sucesso */
-.text-dark { color: #333; }     /* Cinza escuro (cor padrão) */
+/* Cores do texto */
+.text-primary { color: #0066FF; } /* Azul */
+.text-error { color: #ff3333; }   /* Vermelho */
+.text-success { color: #28a745; } /* Verde */
+.text-dark { color: #333; }     /* Cinza escuro */
 .text-gray { color: #777; }     /* Cinza médio */
 .text-light { color: #999; }    /* Cinza claro */
 
+/* --- Histórico de Buscas --- */
 
-/* --- Estilos para o Histórico de Buscas --- */
-
-/* Container da seção de histórico */
+/* Container da seção */
 .search-history {
-  margin-top: 2rem; /* Adiciona margem acima da seção (32px) */
-  background-color: white; /* Define o fundo como branco */
-  border-radius: 12px; /* Adiciona bordas arredondadas */
-  padding: 1.5rem; /* Adiciona espaçamento interno (24px) */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Adiciona uma sombra sutil */
+  margin-top: 2rem; /* Espaçamento acima */
+  background-color: white; /* Fundo branco */
+  border-radius: 12px; /* Bordas arredondadas */
+  padding: 1.5rem; /* Espaçamento interno */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra sutil */
 }
 
-/* Título da seção de histórico */
+/* Título do histórico */
 .history-title {
-  font-size: 1.2rem; /* Define o tamanho da fonte (19.2px) */
-  color: #555; /* Define a cor do texto como cinza escuro */
-  margin-bottom: 1rem; /* Adiciona margem inferior (16px) */
-  font-weight: 600; /* Define o peso da fonte como semi-negrito */
+  font-size: 1.2rem; /* Tamanho da fonte */
+  color: #555; /* Cor cinza escuro */
+  margin-bottom: 1rem; /* Espaçamento inferior */
+  font-weight: 600; /* Peso semi-negrito */
 }
 
-/* Lista que contém os itens do histórico */
+/* Lista de histórico */
 .history-list {
-  display: flex; /* Habilita o layout flexbox */
-  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-  gap: 12px; /* Adiciona espaço entre os itens do histórico */
+  display: flex; /* Flexbox */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  gap: 12px; /* Espaço entre itens */
 }
 
-/* Cada item individual no histórico */
+/* Itens do histórico */
 .history-item {
-  display: flex; /* Habilita o layout flexbox para alinhar avatar e nome */
-  align-items: center; /* Centraliza os itens verticalmente */
-  background-color: #f5f8ff; /* Define um fundo azul muito claro */
-  border-radius: 8px; /* Adiciona bordas arredondadas */
-  padding: 8px 16px; /* Adiciona espaçamento interno */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  transition: all 0.2s; /* Adiciona transição suave para efeitos hover */
+  display: flex; /* Flexbox */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: #f5f8ff; /* Fundo azul claro */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 8px 16px; /* Espaçamento interno */
+  cursor: pointer; /* Muda o cursor */
+  transition: all 0.2s; /* Transição suave */
 }
 
-/* Efeito ao passar o mouse sobre um item do histórico */
+/* Hover nos itens */
 .history-item:hover {
-  background-color: #e9efff; /* Escurece ligeiramente o fundo */
-  transform: translateY(-2px); /* Move o item ligeiramente para cima */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adiciona uma sombra sutil */
+  background-color: #e9efff; /* Fundo um pouco mais escuro */
+  transform: translateY(-2px); /* Eleva o item */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra leve */
 }
 
-/* Avatar dentro do item do histórico */
+/* Avatar nos itens */
 .history-avatar {
-  width: 26px; /* Define a largura */
-  height: 26px; /* Define a altura */
-  border-radius: 50%; /* Torna o avatar circular */
-  margin-right: 10px; /* Adiciona margem à direita para separar do nome */
+  width: 26px; /* Largura */
+  height: 26px; /* Altura */
+  border-radius: 50%; /* Avatar circular */
+  margin-right: 10px; /* Espaço à direita */
 }
 
-/* Nome de usuário dentro do item do histórico */
+/* Nome de usuário nos itens */
 .history-username {
-  font-size: 0.9rem; /* Define o tamanho da fonte (14.4px) */
-  color: #0066FF; /* Define a cor como azul primário */
+  font-size: 0.9rem; /* Tamanho da fonte */
+  color: #0066FF; /* Cor azul primária */
 }
 
-/* --- Responsividade Adicional --- */
-
-/* Estilos para o histórico em telas pequenas (500px ou menos) */
+/* Ajustes para dispositivos pequenos */
 @media (max-width: 500px) {
-  /* Muda a direção da lista para coluna */
   .history-list {
-    flex-direction: column; /* Empilha os itens verticalmente */
+    flex-direction: column; /* Itens em coluna */
   }
   
-  /* Faz cada item ocupar toda a largura disponível */
   .history-item {
-    width: 100%; /* O item ocupa toda a largura do container pai */
-  }
-}
-
-/* Ajustes específicos para dispositivos móveis (largura 768px ou menor) */
-@media (max-width: 768px) {
-  /* Reduz o padding lateral do container principal */
-  .app-container {
-    padding: 0 10px; 
-    /* Ajusta a altura mínima para tentar compensar o teclado virtual (pode não ser ideal em todos os casos) */
-    min-height: calc(100vh - 60px); 
-  }
-  
-  /* Reduz o espaçamento do cabeçalho */
-  .app-header {
-    padding: 1.5rem 0 1rem; /* 24px em cima, 16px embaixo */
-  }
-  
-  /* Diminui ainda mais o título */
-  .app-title {
-    font-size: 1.8rem; /* ~29px */
-  }
-  
-  /* Diminui o subtítulo */
-  .app-subtitle {
-    font-size: 0.9rem; /* ~14px */
-  }
-  
-  /* Adiciona margem inferior significativa ao conteúdo para evitar sobreposição pelo teclado */
-  .app-content {
-    margin-bottom: 70px; 
-  }
-}
-
-/* Ajustes adicionais para quando a altura da tela é muito pequena (ex: teclado aberto em modo paisagem) */
-@media (max-height: 450px) and (max-width: 768px) {
-  /* Reduz drasticamente o espaçamento do cabeçalho */
-  .app-header {
-    padding: 0.8rem 0 0.5rem; /* ~13px em cima, 8px embaixo */
-  }
-  
-  /* Reduz ainda mais o título */
-  .app-title {
-    font-size: 1.5rem; /* 24px */
-  }
-  
-  /* Esconde o subtítulo completamente para economizar espaço vertical precioso */
-  .app-subtitle {
-    display: none; 
+    width: 100%; /* Itens ocupam largura total */
   }
 }
